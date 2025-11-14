@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vehicle Rental</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <h1>Welcome to Vehicle Rental</h1>
+            <h2>Your journey begins here with complete confidence.</h2>
+        </div>
+
+        <div class="header-actions">
+            <a href="login" class="btn-login">Login</a>
+            <a href="register" class="btn-register">Registration</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Car, Van or Motorcycle: We support you every step of the way without compromise</h2>
+        <img src="resources/vehicles3.png" alt="photo of rental vehicle">
+        <form action="http://localhost:8083/reservations" method="POST">
+            <ul>
+                <li>
+                    <label for="vehicles-choice">What type of vehicle do you need ?</label>
+                    <select id="vehicles-choice" name="vehicles-type">
+                        <option>Car</option>
+                        <option>Utility</option>
+                        <option>Motorcycle</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="city">Withdrawal city ?</label>
+                    <input type="text" id="city" name="city" />
+                </li>
+                <li>
+                    <label for="start-location">Departure date :</label>
+                    <input type="date" id="start-location" name="trip-start" value="2025-11-14" required />
+                </li>
+                <li>
+                    <label for="end-location">Return date :</label>
+                    <input type="date" id="end-location" name="trip-end" value="2025-11-14" required />
+                </li>
+                <button type="submit">View vehicles</button>
+            </ul>
+        </form>
+        <img src="resources/vehicles1.png" alt="photo of rental vehicles">
+
+    </main>
+
+    <footer>
+        <footer>
+            <p>&copy; 2025 Vehicle Rental. All rights reserved.</p>
+            <nav class="footer-links">
+                <a href="login">Login</a>
+                <a href="register">Registration</a>
+                <a href="contact">Contact</a>
+        </footer>
+
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

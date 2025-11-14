@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Réservations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Dashboard Reservations/h1>
+</header>
+
+<main>
+    <!-- Ajouter une réservation -->
+    <section>
+        <h2>Adding a reservation</h2>
+        <form id="addReservationForm">
+            <input type="text" name="username" placeholder="Nom utilisateur" required>
+            <select name="vehicleType" required>
+                <option value="">Choose a vehicle</option>
+                <option>Car</option>
+                <option>Utility</option>
+                <option>Motorcycle</option>
+            </select>
+            <input type="text" name="city" placeholder="Ville" required>
+            <input type="date" name="tripStart" required>
+            <input type="date" name="tripEnd" required>
+            <button type="submit">Add</button>
+        </form>
+    </section>
+
+    <!-- Liste des réservations -->
+    <section class="dashboard">
+    <h2>List of reservations</h2>
+    <table id="reservationsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Vehicle</th>
+                <th>City</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Jean Dupont</td>
+                <td>Car</td>
+                <td>Paris</td>
+                <td>2025-11-20</td>
+                <td>2025-11-25</td>
+                <td>
+                    <button class="edit">Modifier</button>
+                    <button class="delete">Supprimer</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Marie Curie</td>
+                <td>Motorcycle</td>
+                <td>Lyon</td>
+                <td>2025-12-01</td>
+                <td>2025-12-05</td>
+                <td>
+                    <button class="edit">Modifier</button>
+                    <button class="delete">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Vehicle Rental. All rights reserved.</p>
+</footer>
+</body>
+</html>
