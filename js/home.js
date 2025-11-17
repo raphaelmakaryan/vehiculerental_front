@@ -22,6 +22,7 @@ async function apiPostReservation(data) {
 
 async function displayResultReservation(data) {
     alert(data.message)
+    location.reload()
 }
 
 async function formAddReservation() {

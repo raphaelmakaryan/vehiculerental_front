@@ -81,6 +81,7 @@ async function transformData(data) {
     return newData
 }
 
+/*
 function displayReservation(data) {
     if (data.length >= 1) {
         let container = document.getElementById("listOfReservation")
@@ -93,9 +94,33 @@ function displayReservation(data) {
       <td>${element.startReservation}</td>
       <td>${element.endReservation}</td>
             <td>${element.priceReservation} €</td>
-      <td>
-      <button class="edit">Modifier</button>
-      <button class="delete">Supprimer</button>
+      <td style="display:flex;flex-direction:column;align-items:center">
+      <a href="reservations/editReservation.html">
+      <button class="edit" style="margin-bottom:5px;" onclick="editReservation(${element.id})">Modifier</button>
+      </a>
+      <button class="delete" style="margin-top:5px;">Supprimer</button>
+      </td>`;
+        });
+    }
+}
+*/
+
+
+function displayReservation(data) {
+    if (data.length >= 1) {
+        let container = document.getElementById("listOfReservation")
+        data.forEach(element => {
+            container.innerHTML += `
+            <td>${element.id}</td>
+      <td>${element.clientName}</td>
+      <td>${element.vehiculeName}</td>
+      <td>${element.estimatedKm} km</td>
+      <td>${element.startReservation}</td>
+      <td>${element.endReservation}</td>
+            <td>${element.priceReservation} €</td>
+      <td style="display:flex;flex-direction:column;align-items:center">
+      <button class="edit" style="margin-bottom:5px;" onclick="editReservation(${element.id})">Modifier</button>
+      <button class="delete" style="margin-top:5px;">Supprimer</button>
       </td>`;
         });
     }
@@ -117,8 +142,8 @@ function displayVehicle(data) {
             <td>${element.defaultPrice}</td>
             <td>${element.pricePerKilometer}</td>
             <td>
-                <button class="edit">Modifier</button>
-                <button class="delete">Supprimer</button>
+      <button class="edit" style="margin-bottom:5px;">Modifier</button>
+      <button class="delete" style="margin-top:5px;">Supprimer</button>
             </td>`
                 ;
         });
@@ -137,8 +162,8 @@ function displayClients(data) {
             <td>${element.birthday}</td>
             <td>${element.obtaining_license}</td>
             <td>
-                <button class="edit">Modifier</button>
-                <button class="delete">Supprimer</button>
+      <button class="edit" style="margin-bottom:5px;">Modifier</button>
+      <button class="delete" style="margin-top:5px;">Supprimer</button>
             </td>`
                 ;
         });
@@ -154,8 +179,8 @@ function displayMaintenance(data) {
             <td>${element.idVehicule}</td>
             <td>${element.idUnavailability}</td>
             <td>
-                <button class="edit">Modifier</button>
-                <button class="delete">Supprimer</button>
+      <button class="edit" style="margin-bottom:5px;">Modifier</button>
+      <button class="delete" style="margin-top:5px;">Supprimer</button>
             </td>`
                 ;
         });
@@ -172,8 +197,8 @@ function displayUnavailability(data) {
             <td>${element.description}</td>
             <td>${element.time} days</td>
             <td>
-                <button class="edit">Modifier</button>
-                <button class="delete">Supprimer</button>
+      <button class="edit" style="margin-bottom:5px;">Modifier</button>
+      <button class="delete" style="margin-top:5px;">Supprimer</button>
             </td>`
                 ;
         });
@@ -186,6 +211,13 @@ async function allData() {
     displayClients(await apiGetClients())
     displayMaintenance(await apiGetMaintenance())
     displayUnavailability(await apiGetUnavailability())
+}
+
+function editReservation(id) {
+    if (localStorage.getItem("reservation") === null) {
+        localStorage.setItem("reservation", id)
+    }
+    window.location.href = "reservations/editReservation.html";
 }
 
 allData()

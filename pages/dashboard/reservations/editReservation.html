@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Modifier reservation</title>
+    <link rel="stylesheet" href="../../../style/style.css">
+</head>
+
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>Dashboard Reservations</h1>
+            <h2>Your journey begins here with complete confidence.</h2>
+        </div>
+
+
+        <div class="header-actions">
+            <a href="../../../index.html" class="btn-register">Home Page</a>
+            <a href="../../vehicles/vehicles.html" class="btn-register">Our vehicles-choice</a>
+            <a href="../dashboard.html" class="btn-login">Dashboard</a>
+        </div>
+    </header>
+
+    <main>
+        <form onsubmit="formEditReservation()">
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <h2>Modifier la reservation</h2>
+            </div>
+            <input type="hidden" name="id" id="id">
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="idClient">IdClient ?</label>
+                    <input type="number" name="idClient" placeholder="ID du client" id="idClient" required>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="vehiculeChoose">Choissiez le véhicule</label>
+                    <select name="idVehicle" required id="idVehicle">
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="startReservation">Departure date :</label>
+                    <input type="date" name="startReservation" id="startReservation" required>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="endReservation">Return date :</label>
+                    <input type="date" name="endReservation" id="endReservation" required>
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="estimatedKm">Estimated Km :</label>
+                    <input type="number" name="estimatedKm" placeholder="Estimation des kilometres" id="estimatedKm"
+                        required>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="priceReservation">Price Reservation :</label>
+                    <input type="number" name="priceReservation" placeholder="Prix de la reservation" id="priceReservation"
+                        required>
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <button type="submit">Edit a reservation</button>
+            </div>
+        </form>
+    </main>
+
+
+    <script src="../../../js/editReservation.js"></script>
+</body>
+
+</html>
