@@ -80,6 +80,5 @@ async function formAddVehicle() {
         pricePerKilometer,
         volume,
     };
-    console.log(vehicleData)
     await displayResultVehicle(await apiPostVehicle(vehicleData));
 }

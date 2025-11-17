@@ -113,6 +113,16 @@ async function editVehicle() {
 editVehicle()
 
 
+function extras(id) {
+    let search = document.getElementById(id);
+    if (search.value === "") {
+        return 0
+    } else {
+        return parseInt(search.value)
+    }
+}
+
+
 async function formEditVehicle() {
     event.preventDefault();
     const id = document.getElementById("id").value
@@ -120,19 +130,19 @@ async function formEditVehicle() {
     const model = document.getElementById("modelVehicle").value;
     const color = document.getElementById("colorVehicle").value;
     const registration = document.getElementById("registrationVehicle").value;
-    const horse_power = document.getElementById("horsepowerVehicle").value;
-    const cylinder = document.getElementById("cylinderVehicle") ? document.getElementById("cylinderVehicle").value : 0;
-    const volume = document.getElementById("volumeVehicle") ? document.getElementById("volumeVehicle").value : 0;
-    const price_per_kilometer = document.getElementById("pricePerKilometerVehicle").value;
+    const horsePower = document.getElementById("horsepowerVehicle").value;
+    const cylinder = extras("cylinderVehicle")
+    const volume = extras("volumeVehicle")
+    const pricePerKilometer = document.getElementById("pricePerKilometerVehicle").value;
     const vehicleData = {
         type,
         model,
         color,
         registration,
-        horse_power,
+        horsePower,
         cylinder,
         volume,
-        price_per_kilometer
+        pricePerKilometer
     };
     await displayResultVehicle(await apiPutVehicle(id, vehicleData), "edit");
 }
