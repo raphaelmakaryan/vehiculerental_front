@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ajouter client</title>
+    <link rel="stylesheet" href="../../../style/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <h1>Dashboard Reservations</h1>
+            <h2>Your journey begins here with complete confidence.</h2>
+        </div>
+
+
+        <div class="header-actions">
+            <a href="../../../index.html" class="btn-register">Home Page</a>
+            <a href="../../vehicles/vehicles.html" class="btn-register">Our vehicles-choice</a>
+            <a href="../dashboard.html" class="btn-login">Dashboard</a>
+        </div>
+    </header>
+
+
+    <main>
+        <form onsubmit="formAddClient()">
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <h2>Ajouter un client</h2>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="firstNameClient">Prénom</label>
+                    <input type="text" name="firstNameClient" id="firstNameClient" required>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="LastNameClient">Nom de famille</label>
+                    <input type="text" name="LastNameClient" id="LastNameClient" required>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="birthdayClient">Date de naissance</label>
+                    <input type="date" name="birthdayClient" id="birthdayClient" required>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="numberLicenseClient">Numéro de permis :</label>
+                    <input type="text" name="numberLicenseClient" id="numberLicenseClient" required maxlength="13"
+                        minlength="13">
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="obtainingLicense">Année d'obtension du permis</label>
+                    <input type="number" name="obtainingLicense" id="obtainingLicense" required minlength="4"
+                        maxlength="4"
+                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: column; align-items: center; width: 100%;">
+                <button type="submit">Create a client</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="../../../js/addClient.js"></script>
+
+</body>
+
+</html>
