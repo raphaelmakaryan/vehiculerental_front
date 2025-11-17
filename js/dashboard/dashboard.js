@@ -225,8 +225,8 @@ function displayUnavailability(data) {
             <td>${element.description}</td>
             <td>${element.time} days</td>
             <td>
-      <button class="edit" style="margin-bottom:5px;">Modifier</button>
-      <button class="delete" style="margin-top:5px;">Supprimer</button>
+      <button class="edit" style="margin-bottom:5px;"  onclick="editUnavailability(${element.id})">Modifier</button>
+      <button class="delete" style="margin-top:5px;"   onclick="deleteUnavailability(${element.id})">Supprimer</button>
             </td>`
                 ;
         });
@@ -264,6 +264,13 @@ function editClient(id) {
     window.location.href = "clients/editClients.html";
 }
 
+function editUnavailability(id) {
+    if (localStorage.getItem("unavailability") === null) {
+        localStorage.setItem("unavailability", id)
+    }
+    window.location.href = "unavailability/editUnavailability.html";
+}
+
 function editMaintenance(id) {
     if (localStorage.getItem("maintenance") === null) {
         localStorage.setItem("maintenance", id)
@@ -296,6 +303,11 @@ async function deleteClient(id) {
 async function deleteMaintenance(id) {
     event.preventDefault()
     await displayResultDelete(await apiDeleteMaintenance(id));
+}
+
+async function deleteUnavailability(id) {
+    event.preventDefault()
+    //await displayResultDelete(await apiDeleteMaintenance(id));
 }
 //#endregion DELETE
 
