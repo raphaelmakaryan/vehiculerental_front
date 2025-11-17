@@ -75,8 +75,12 @@ async function vehicle() {
     displayVehicle(await apiGetVehicle())
 }
 
+
 function chooseBookVehicle(id) {
-    console.log(id)
+    if (localStorage.getItem("bookVehicle") === null) {
+        localStorage.setItem("bookVehicle", id)
+    }
+    window.location.href = "./reservationsVehicles.html";
 }
 
 vehicle()

@@ -4,11 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicles - Réservations</title>
-    <link rel="stylesheet" href="style/style.css">
+    <title>Vehicle Rental - Book</title>
+    <link rel="stylesheet" href="../../style/style.css">
 </head>
 
 <body>
+
+    <header>
+        <div class="header-top">
+            <h1>Welcome to Vehicle Rental</h1>
+            <h2>Your journey begins here with complete confidence.</h2>
+        </div>
+
+        <div class="header-actions">
+            <a href="index.html" class="btn-register">Home Page</a>
+            <a href="/pages/vehicles/vehicles.html" class="btn-register">Our vehicles-choice</a>
+            <a href="/pages/dashboard/dashboard.html" class="btn-login">Dashboard</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Car, Van or Motorcycle: We support you every step of the way without compromise</h2>
+        <form onsubmit="formAddReservation()">
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <h2>Reservation</h2>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="idClient">IdClient ?</label>
+                    <input type="number" name="idClient" placeholder="ID du client" id="idClient" required value="1">
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="vehiculeChoose">Vehicle</label>
+                    <input type="hidden" name="vehiculeChooseId" id="vehiculeChooseId">
+                    <input type="text" name="vehiculeChoose" id="vehiculeChoose" required readonly>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="startReservation">Departure date :</label>
+                    <input type="date" name="startReservation" id="startReservation" required>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="endReservation">Return date :</label>
+                    <input type="date" name="endReservation" id="endReservation" required>
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="estimatedKm">Estimated Km :</label>
+                    <input type="number" name="estimatedKm" placeholder="Estimation des kilometres" id="estimatedKm"
+                        required value="10">
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <button type="submit">Create a reservations</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <footer>
+            <p>&copy; 2025 Vehicle Rental. All rights reserved.</p>
+            <nav class="footer-links">
+                <a href="dashboard">Dashboard</a>
+                <a href="contact">Contact</a>
+        </footer>
+    </footer>
+
+    <script src="../../js/reservationsVehicles.js"></script>
 
 </body>
 
