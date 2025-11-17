@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ajouter un soucis</title>
+    <link rel="stylesheet" href="../../../style/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <h1>Dashboard Reservations</h1>
+            <h2>Your journey begins here with complete confidence.</h2>
+        </div>
+
+
+        <div class="header-actions">
+            <a href="../../../index.html" class="btn-register">Home Page</a>
+            <a href="../../vehicles/vehicles.html" class="btn-register">Our vehicles-choice</a>
+            <a href="../dashboard.html" class="btn-login">Dashboard</a>
+        </div>
+    </header>
+
+    <main>
+        <form onsubmit="formAddUnavailability()">
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <h2>Ajouter un soucis</h2>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="typeVehicle">Type de vehicule ?</label>
+                    <select name="typeVehicle" required id="typeForVehicle">
+                        <option value="car">Car</option>
+                        <option value="motorcycle">Motorcycle</option>
+                        <option value="utility">Utility</option>
+                    </select>
+                </div>
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="descVehicle">Desription :</label>
+                    <input type="text" name="descVehicle" id="descVehicle" required>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: row; align-items: center;">
+                <div style="width: 100%; margin: 1rem;">
+                    <label for="timeVehicle">Temps :</label>
+                    <input type="number" name="timeVehicle" id="timeVehicle" required>
+                </div>
+            </div>
+
+            <div style="display: flex;flex-direction: column; align-items: center; width: 100%;">
+                <button type="submit">Create a unavailability</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="../../../js/dashboard/unavailability/addUnavailability.js"></script>
+
+</body>
+
+</html>
