@@ -84,6 +84,18 @@ async function apiGetMaintenance() {
         })
 }
 
+async function apiDeleteMaintenance(id) {
+    return await fetch("http://localhost:8080/maintenance/" + id, {
+        method: "DELETE",
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+        mode: 'cors'
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res;
+        })
+}
+
 async function apiGetUnavailability() {
     return await fetch("http://localhost:8080/unavailability")
         .then(res => res.json())
@@ -279,6 +291,11 @@ async function deleteVehicle(id) {
 async function deleteClient(id) {
     event.preventDefault()
     await displayResultDelete(await apiDeleteClient(id));
+}
+
+async function deleteMaintenance(id) {
+    event.preventDefault()
+    await displayResultDelete(await apiDeleteMaintenance(id));
 }
 //#endregion DELETE
 
