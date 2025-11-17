@@ -74,13 +74,13 @@ async function formEditClient() {
     const lastName = document.getElementById("LastNameClient").value;
     const birthday = document.getElementById("birthdayClient").value;
     const obtaining_license = document.getElementById("obtainingLicense").value;
-    const numberLicense = document.getElementById("numberLicenseClient").value;
+    const number_license = document.getElementById("numberLicenseClient").value;
     const clientData = {
         firstName,
         lastName,
         birthday,
         obtaining_license,
-        numberLicense
+        number_license
     };
     await displayResultClient(await apiPutClient(id, clientData));
 }
