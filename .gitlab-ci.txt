@@ -1,0 +1,46 @@
+
+stages:
+  - clean
+  - docker
+  - deploy
+
+variables:
+  NAME_PROJECT: "vehiclerentaleureka"
+
+clean:
+  stage: clean
+  image: maven:amazoncorretto
+  script:
+    - echo "Nettoyage en cours"
+    - mvn clean package
+    - echo "Nettoyage terminée"
+  artifacts:
+    paths:
+      - target
+
+docker:
+  stage: docker
+  image: docker:latest
+  services:
+    - name: docker:dind
+      command: [ "--tls=false" ]
+  tags:
+    - local
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - docker build -t vehiclerentaleureka:latest .
+
+
+deploy:
+  stage: deploy
+  image: docker:latest
+  tags:
+    - local
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - docker stop vehiclerental_eureka || true
+    - docker rm vehiclerental_eureka || true
+    - docker volume create vehiclerentaleureka_volume || true
+    - docker run -d --name vehiclerental_eureka -p 9091:9091 -v vehiclerentaleureka_volume:/data vehiclerentaleureka:latest
