@@ -1,0 +1,21 @@
+stages:
+  - docker-build-and-push
+
+docker-build-and-push:
+  stage: docker-build-and-push
+  image: docker:latest
+  services:
+    - name: docker:dind
+      command: [ "--tls=false" ]
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+    GIT_STRATEGY: none
+  script:
+    - echo "$CI_REGISTRY_PAT" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - echo "Build en cours"
+    - docker build -t "sarahpop/vehiclerental_front:latest" .
+    - echo "Build terminé"
+    - echo "push en cours"
+    - docker push "sarahpop/vehiclerental_front:latest"
+    - echo "push terminé"
+
